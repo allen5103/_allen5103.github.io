@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+  <title>Document</title>
+
+  <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <fieldset id="create">
+      <legend>新增</legend>
+      <input type="text"
+             class="name"
+             placeholder="name">
+      <input type="text"
+             class="meal"
+             placeholder="meal">
+      <input type="text"
+             class="drink"
+             placeholder="drink">
+      <a href="javascript:;"
+         @click="postData">create</a>
+    </fieldset>
+    <ul style="list-style: none">
+      <li v-for="user in list">
+        {{user.id}}.&nbsp;&nbsp;
+        name:{{user.name}}&nbsp;&nbsp;
+        meal:{{user.meal}}&nbsp;&nbsp;
+        drink:{{user.drink}}</li>
+    </ul>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+
+        list: {},
+      },
+      methods: {
+        getData: function () {
+          let self = this;
+          axios.get(
+            'http://localhost:3000/order'
+          ).then(function (res) {
+            // console.log(res.data)
+            self.list = res.data
+
+          })
+          axios.get(
+            'https://api.github.com/users/allen5103'
+          ).then(function (res) {
+            console.log(res.data)
+            // self.list = res.data
+
+          })
+        },
+        postData: function () {
+          console.log(this.list)
+          let id = this.list.length ? parseInt(this.list[this.list.length - 1].id + 1) : 1
+          // this.id = this.list.length ? this.list[this.list.length - 1].id : 0 + 1
+          let name = document.querySelector('#create>.name').value.trim()
+          let meal = document.querySelector('#create>.meal').value.trim()
+          let drink = document.querySelector('#create>.drink').value.trim() ? document.querySelector('#create>.drink').value.trim() : "不須飲料"
+          if (!name || !meal) return
+          console.log(name)
+          axios.post(
+            'http://localhost:3000/order',
+            {
+              id: id,
+              name: name,
+              meal: meal,
+              drink: drink
+            }
+
+          )
+        },
+        deleteData: function () {
+
+        }
+      },
+      mounted() {
+        this.getData()
+      },
+    })
+  </script>
+
+
+</body>
+
+</html>
