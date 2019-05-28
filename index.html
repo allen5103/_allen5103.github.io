@@ -50,17 +50,10 @@
         getData: function () {
           let self = this;
           axios.get(
-            'http://localhost:3000/order'
+            './data'
           ).then(function (res) {
             // console.log(res.data)
             self.list = res.data
-
-          })
-          axios.get(
-            'https://api.github.com/users/allen5103'
-          ).then(function (res) {
-            console.log(res.data)
-            // self.list = res.data
 
           })
         },
