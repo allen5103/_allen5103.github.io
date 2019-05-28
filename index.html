@@ -50,10 +50,10 @@
         getData: function () {
           let self = this;
           axios.get(
-            './data'
+            './data.json'
           ).then(function (res) {
-            // console.log(res.data)
-            self.list = res.data
+            console.log(res.data)
+            self.list = res.data.order
 
           })
         },
