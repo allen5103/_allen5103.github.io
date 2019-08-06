@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel=stylesheet><title>Ａllen Liu - Portfolio</title><style>body,html{
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel=stylesheet><title>Allen Liu - Portfolio</title><style>body,html{
       margin: 0;
       padding: 0;
     }
@@ -9,4 +9,22 @@
       margin: 0;
       padding: 0;
       list-style: none;
-    }</style><link href=/css/about.c77d8aa4.css rel=prefetch><link href=/js/about.f1c3c3c8.js rel=prefetch><link href=/css/app.6f021612.css rel=preload as=style><link href=/js/app.693dd6e8.js rel=preload as=script><link href=/js/chunk-vendors.3e624e49.js rel=preload as=script><link href=/css/app.6f021612.css rel=stylesheet></head><body><noscript><strong>We're sorry but io doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.3e624e49.js></script><script src=/js/app.693dd6e8.js></script></body></html>
+    }
+    .toTop{
+      position: fixed;
+      right:2rem;
+      bottom:2rem;
+      z-index: 3;
+    }</style><link href=/css/about.c77d8aa4.css rel=prefetch><link href=/js/about.f1c3c3c8.js rel=prefetch><link href=/css/app.b7d66b95.css rel=preload as=style><link href=/js/app.0be9064c.js rel=preload as=script><link href=/js/chunk-vendors.3ca1001a.js rel=preload as=script><link href=/css/app.b7d66b95.css rel=stylesheet></head><body><noscript><strong>We're sorry but io doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><a class=toTop href=javascript:;><img src=./images/pointing-up-arrow.png alt=""></a><script>window.onload=function(){
+        document.addEventListener('scroll',function(){
+          if(window.scrollY>50){
+            document.querySelector('.toTop').style.display = 'inline-block'
+          }else{
+            document.querySelector('.toTop').style.display = 'none'
+          }
+        })
+            document.querySelector('.toTop').addEventListener('click',function(){
+              window.scrollTo(0,0)
+            })
+
+      }</script><script src=/js/chunk-vendors.3ca1001a.js></script><script src=/js/app.0be9064c.js></script></body></html>
