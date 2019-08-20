@@ -1,0 +1,1078 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>宇宙最強虛擬樂團 Gorillaz</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <style>
+        /* 模組化 */
+        .displaynone {
+            display: none;
+        }
+
+        ::selection {
+            background: transparent;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .displayFlex {
+            display: flex;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        .container {
+            padding: 0;
+            box-sizing: border-box;
+            max-width: 1680px;
+        }
+
+        .transition {
+            transition: all .5s;
+        }
+
+        .transition_03s {
+            transition: all .3s;
+        }
+
+        .transition_1s {
+            transition: all 1s;
+
+        }
+
+        .transition_bg {
+            transition: background-image .5s;
+        }
+
+        body {
+            background: white;
+        }
+
+        .indexNavFont {
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+            font-weight: 500;
+            background: rgba(0, 0, 0, .5);
+            height: 5rem;
+            line-height: 5rem;
+        }
+
+        .indexNavFont:hover {
+            text-decoration: none;
+            background: rgba(226, 102, 139, 0.5);
+            color: white;
+        }
+
+        .indexLiFont {
+            font-size: 1rem;
+            font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+            font-weight: 300;
+        }
+
+        .indexLiFont:hover {
+            text-decoration: none;
+            background: rgba(226, 102, 139, 0.9);
+            color: white;
+            font-weight: 500;
+        }
+
+        .albumIntroFont {
+            writing-mode: horizontal-tb;
+            font-size: 1rem;
+            font-weight: 300;
+            text-align: left;
+            line-height: 2rem;
+        }
+
+        .textCenter {
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            text-align: center;
+        }
+
+        /* header跟nav */
+        header {
+            justify-content: space-between;
+            margin: 0;
+            height: 2vh;
+            position: fixed;
+            top: 0;
+            left: calc(50% - 840px);
+            width: 1680px;
+            z-index: 9;
+        }
+
+        .header_hide {
+            transform: translateY(-200px)
+        }
+
+        .logo {
+            flex-grow: 3;
+            position: relative;
+            top: -50px;
+            z-index: 1000;
+            left: 13px;
+            height: 50px;
+        }
+
+        .fakeLogoSection {
+            height: 80px;
+            width: 220px;
+            position: fixed;
+            top: 0;
+            z-index: 1005;
+            cursor: pointer;
+
+        }
+
+        #nav {
+            flex-grow: 3;
+            justify-content: center;
+            margin: 0;
+        }
+
+        #nav li a,
+        .socialMedia a {
+            flex-grow: 1;
+            justify-content: space-around;
+            margin: 0;
+            line-height: 50px;
+            color: rgb(231, 49, 104);
+            display: block;
+            width: 200px;
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .socialMedia a {
+            width: 100px;
+        }
+
+        #nav li a:hover,
+        .socialMedia a:hover {
+            transform: rotate(5deg) scale(1.2);
+            text-decoration: none;
+        }
+
+        /* 主視覺三塊 */
+        /* ---------------------------Index+Info---------------------------------- */
+        section#index {
+            width: 100%;
+            height: 90vh;
+            box-sizing: border-box;
+            /* margin-bottom: 50px; */
+            overflow: hidden;
+            background: url(images/index_bg_00.jpg) no-repeat;
+            background-size: 100% 100%;
+
+
+        }
+
+        .quaterMain {
+            height: 100vh;
+            width: 33.3%;
+            margin-top: 50px;
+        }
+
+        .info {
+            position: relative;
+            text-indent: 2rem;
+        }
+
+        .closeInfo {
+            position: absolute;
+            border-radius: 5%;
+            width: 40px;
+            height: 40px;
+            border-left: 2px dashed rgba(242, 189, 205, .9);
+            border-bottom: 2px dashed rgba(242, 189, 205, .9);
+            top: calc(-50vh + 1px);
+            left: 1638px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .cross_1 {
+            width: 30px;
+            height: 15px;
+            border-bottom: 2px solid rgba(242, 189, 205, .9);
+            transform: rotate(45deg);
+            transform-origin: 5% -20%;
+            margin-left: 20px;
+        }
+
+        .cross_2 {
+            width: 30px;
+            height: 15px;
+            border-bottom: 2px solid rgba(242, 189, 205, .9);
+            transform: rotate(-45deg);
+            transform-origin: 15% 30%;
+        }
+
+        .popupInfo {
+            box-sizing: border-box;
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 0vh;
+            left: 610px;
+            text-align: left;
+            border: 2px dashed rgba(242, 189, 205, .9);
+            padding: 5px;
+            padding-right: 30px;
+            opacity: 0;
+            color: rgba(226, 102, 139, 0.9);
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .popupInfo p {
+            padding: 1vh 1vh 0 1vh;
+            font-family: Arial, "微軟正黑體", Helvetica, sans-serif
+        }
+
+        .showInfo {
+            top: 0vh;
+            opacity: 1;
+            width: 1067px;
+            height: 40.3vh;
+
+        }
+
+        .show_X {
+            top: 0vh;
+            opacity: 1;
+        }
+
+        .currentBG {
+            background: rgba(242, 189, 205, .9)
+        }
+
+        .info a,
+        .album a,
+        .tour a {
+            width: 100%;
+        }
+
+        .info:hover,
+        .album:hover,
+        .tour:hover {
+            background: rgba(242, 189, 205, .9)
+        }
+
+        .link_active {
+            background: rgba(226, 102, 139, 0.9);
+            color: white;
+            font-weight: 500;
+        }
+
+        /* ---------------------------Album---------------------------------- */
+        .albumPage {
+            height: 100vh;
+            background: url(images/album_bg.png);
+        }
+
+        .albumList {
+            width: 90%;
+            padding: 0;
+            background: rgba(238, 238, 238, .7);
+            height: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .album ul li {
+            width: 100%;
+        }
+
+        .album ul li a {
+            color: black;
+            display: block;
+            width: 100%;
+            line-height: 3rem;
+            cursor: pointer;
+        }
+
+        .showAlbumList {
+            height: 18rem;
+        }
+
+        .albumAccordion {
+            flex-direction: row;
+            width: 30%;
+        }
+
+        .albumIntro {
+            width: 0;
+            background: rgba(0, 0, 0, .5);
+            height: 95vh;
+            padding-top: 40px;
+            opacity: 0;
+            overflow: auto;
+            position: relative;
+            padding-bottom:20px;
+        }
+
+        .img_float {
+            width: 250px;
+            height: 230px;
+            float: left;
+        }
+
+        .img_float>img {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .albumIntro>p {
+            text-indent: 2.4rem;
+            margin: 0 100px;
+            font-size: 1rem;
+            line-height: 2.5rem;
+        }
+
+        .albumChecked {
+            width: 982px;
+            opacity: 1;
+
+
+        }
+
+        .albumName {
+            height: 95vh;
+            writing-mode: vertical-lr;
+            line-height: 10vh;
+            text-align: center;
+            position: relative;
+            margin-top: 50px;
+            display: inline-block
+        }
+
+        .albumName:hover {
+            cursor: pointer;
+
+        }
+
+        /* -------------------------------tour------------------------------------------ */
+        section#tour {
+            height: auto;
+            background: url(images/tour_bg.png);
+        }
+
+        section#tour h2 {
+            writing-mode: vertical-lr;
+            font-size: 5rem;
+            position: fixed;
+            left: -200px;
+            top: 200px;
+            z-index: -1;
+        }
+
+        .overflow {
+            justify-content: center;
+        }
+
+        tr {
+            display: flex;
+            line-height: 2rem;
+            transition: all .5s;
+
+        }
+
+        tr:hover {
+            background: rgba(242, 189, 205, .9)
+        }
+
+        td {
+            display: flex;
+            align-items: center;
+            height: 5.5rem;
+            font-size: 0.8rem;
+            line-height: 1.6rem;
+
+        }
+
+        .tourDate {
+            text-align: center;
+            width: 300px;
+            justify-content: center;
+        }
+
+        .tourPlace {
+            text-align: left;
+            width: 300px;
+        }
+
+        .tourWith {
+            width: 384px;
+            padding-left: 20px;
+        }
+
+        .ticket {
+            text-align: center;
+            width: 300px;
+            justify-content: flex-start;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .ticket a {
+            display: block;
+            width: 100%;
+            background: rgba(150, 150, 150, 0.5);
+            cursor: pointer;
+            color: white;
+            transition: all .5s;
+        }
+
+        .ticket a:hover {
+            text-decoration: none;
+            background: rgba(226, 102, 139, 0.9);
+        }
+    </style>
+    <link rel="stylesheet" href="mq.css">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+    <div class="container ">
+        <header class="displayFlex transition">
+
+            <div class="logo"><img src="images/logo_text_02.png" alt="">
+                <div class="fakeLogoSection"></div>
+            </div>
+            <div class="sandwichClose displayFlex transition_03s">
+                <div class="linebox transition_03s "></div>
+                <div class="linebox transition_03s"></div>
+                <div class="linebox transition_03s"></div>
+            </div>
+            <div class="sandwichOpen displayFlex transition_03s">
+                <ul id="nav" class="displayFlex transition">
+                    <li><a class="transition_03s" data-scrollTo="index">INFO</a></li>
+                    <li><a class="transition_03s" data-scrollTo="album">ALBUM</a></li>
+                    <li><a class="transition_03s" data-scrollTo="tour">TOUR</a></li>
+                </ul>
+                <ul class="socialMedia displayFlex transition">
+                    <li><a class="transition_03s" href="https://www.facebook.com/Gorillaz/" target="_blank">Facebook</a></li>
+                    <li><a class="transition_03s" href="https://twitter.com/gorillaz" target="_blank">Twitter</a></li>
+                    <li><a class="transition_03s" href="https://www.instagram.com/gorillaz/?hl=zh-tw" target="_blank">Instagram</a></li>
+                    <li><a class="transition_03s" href="https://www.youtube.com/user/gorillaz" target="_blank">Youtube</a></li>
+
+                </ul>
+
+            </div>
+
+        </header>
+        <section id="index" class="displayFlex transition_bg">
+            <div class="quaterMain info transition displayFlex textCenter">
+                <div class="closeInfo transition_1s">
+                    <div class="cross_1"></div>
+                    <div class="cross_2"></div>
+                </div>
+                <div class="popupInfo transition">
+                    <p>街頭霸王（Gorillaz）是一支虛擬樂團，由四個虛擬動畫角色組成，分別是：阿D（2D）、小麵（Noodle）、洛胖（Russel Hobbs）、魔頭（Murdoc Niccals）。</p>
+
+                    <p>樂團是由英國布勒樂團（Blur）主唱—戴蒙·亞邦（Damon Albarn）和漫畫家吉米·何力特（Jamie
+                        Hewlett）共同創造。他們的風格都是十分「另類」，但是也受到其他方面大量的影響。</p>
+                    <p>與其他成功的虛擬樂團不同，他們的歌曲並不是針對特定風格的詼諧調侃（例如：電影《風載歌行》和《搖滾萬萬歲》中的虛擬樂團），也不是針對兒童市場所設計例如亞騎士（The
+                        Archies）樂團），大多數的歌迷都是被街頭霸王的音樂吸引，更勝於他們對於那些卡通人物的支持。</p>
+                    <p>街頭霸王在2001年發行的首張專輯—《街頭霸王》（Gorillaz）締造銷售量超過300萬張的佳績，並且還因此獲得了金氏世界紀錄中「最成功的虛擬樂團」的稱號。他們的第二張專輯《惡靈古堡》（Demon
+                        Day）在美國銷售量達到雙白金唱片，英國更達到三白金唱片。他們也在2005年的葛萊美獎中入圍了5項，最後贏得「最佳流行重唱組合」大獎。</p>
+
+                </div>
+                <a class="indexNavFont link_info transition" href="#">INFO</a>
+
+                <!-- <a class="indexFont" href="#">成員</a> -->
+
+            </div>
+
+            <div class="quaterMain album transition displayFlex textCenter">
+                <a class="indexNavFont link_album transition" href="#">ALBUM</a>
+                <ul class="albumList transition">
+                    <li><a class="indexLiFont transition" data-albumname="1" data-scrollTo="album">《Gorillaz》 (2001)</a></li>
+                    <li><a class="indexLiFont transition" data-albumname="2" data-scrollTo="album">《Demon Days》 (2005)</a></li>
+                    <li><a class="indexLiFont transition" data-albumname="3" data-scrollTo="album">《Plastic Beach》
+                            (2010)</a></li>
+                    <li><a class="indexLiFont transition" data-albumname="4" data-scrollTo="album">《The Fall》 (2010)</a></li>
+                    <li><a class="indexLiFont transition" data-albumname="5" data-scrollTo="album">《Humanz》 (2017)</a></li>
+                    <li><a class="indexLiFont transition" data-albumname="6" data-scrollTo="album">《The Now Now》 (2018)</a></li>
+                </ul>
+
+            </div>
+            <div class="quaterMain tour transition displayFlex textCenter">
+                <a class="indexNavFont link_tour transition" href="#" data-scrollTo="tour">TOUR</a>
+
+            </div>
+
+        </section>
+        <section id="album" class="albumPage">
+            <ul class="albumAccordion displayFlex transition">
+                <li class="albumName mq123 indexNavFont transition">
+                    <h3>《Gorillaz》 (2001)</h3>
+                    <div class="albumIntro albumIntroFont transition">
+                        <figure class="img_float"> <img src="images/album/GorillazAlbum.jpg" alt=""></figure>
+                        <p>《Gorillaz》</p><br>
+                        <p>．史上最強音樂企畫 世上最悍音樂幫派 </p>
+                        <p>．BILLBOARD音樂錄影帶獎「2001年最佳新人」認證許可 </p>
+                        <p>．單曲CLINT EASTWOOD連奪音樂動畫‧網路科技‧數位特效等多項大獎</p>
+                        <br><br>
+                        <p>由於一場搶劫的意外車禍，魔頭與阿D這對天生冤家決定共組樂團。魔頭在倫敦SoHo的唱片行水結識了信奉嘻哈教條的鼓手洛胖。最後，他們在NME刊登廣告而尋得另一位成員─吉他手小麵。這四個特立獨行、身懷絕技的日怪ㄎㄚ組成了最頹廢、最神祕的音樂新幫派─街頭霸王！在他們的首張同名專輯，你可以聽到紐約的黑人嘻哈、牙買加的雷鬼Dub、古巴的傳統情歌或英倫的龐克搖滾；但不論你聽到或看到什麼，街頭霸王絕對不只是一個「虛擬」樂團，它是一個「真實」凝聚所有人類夢想，開創音樂全新記元的超人類樂團！！！</p>
+                    </div>
+                </li>
+                <li class="albumName indexNavFont transition ">
+                    <h3>《Demon Days》 (2005)</h3>
+                    <div class="albumIntro albumIntroFont transition">
+                        <div class="img_float"> <img src="images/album/demondays.jpg" alt=""></div>
+
+                        <p>《Demon Days》</p><br>
+                        <p>．入選英國權威Q雜誌2005年年終亞軍、NME雜誌2005年年終10、同時入圍48屆葛萊美獎五項大獎並榮獲年度最佳重唱組合大獎、同時入圍全英音樂獎『年度最佳樂團』、『年度最佳專輯』兩項大獎BLUR布勒合唱團主唱Damon
+                            Albarn領軍之本世紀最酷、炫的虛擬卡通樂團！</p>
+
+                        <br>
+                        <p>《Grey Album》是Danger Mouse創意驚人的傑作，它剪接了嘻哈大佬Jay-Z《Black Album》的人聲與搖滾經典The Beatles的同名專輯(俗稱《White
+                            Album》)的器樂片段，如此黑白混合，從樂評界到新世代樂迷皆對該專輯熱列迴響，不但多家雜誌選為年度最佳、還締造了超越Norah Jones 與Kanye
+                            West這兩位當紅葛萊美獎得主的網路下載紀錄。不過此舉惹毛了擁有The Beatles錄音版權的EMI，立刻發出了禁止販售令。卻無礙於Danger
+                            Mouse堂而皇之入主Gorillaz。</p>
+
+                        <p>這樣的組合於是發展出Gorillaz全新大作《Demon Days》，取樣了70年代末經典恐怖殭屍電影【Dawn Of The
+                            Dead】(上回的《G-Side》也引用同一出處，證明這幫人顯然相當鍾情這部片)當年未出版的配樂片段當作開場，揭示了《Demon
+                            Days》較前作陰暗詭譎的基調。他們表示「Demon」是一種病，它讓人變得沒大腦，失去三思而後行的能力。它很邪惡，表面上卻看不出來；它曾經蟄伏，如今竟被喚醒，它，這怪物，就要回來了！如是充滿政治現況隱喻的寓言式宣告，果然得到各界嘻哈饒舌好漢響應。
+                            Guardian率先給予五顆星滿分推薦！ 危害世界的怪物也許暫時不會消失，但Gorillaz無疑令樂迷再度充滿勇氣。</p>
+                    </div>
+                </li>
+                <li class="albumName indexNavFont transition">
+                    <h3>《Plastic Beach》 (2010)</h3>
+                    <div class="albumIntro albumIntroFont transition">
+                        <div class="img_float"> <img src="images/album/plasticbeach.jpg" alt=""></div>
+
+                        <p>《Plastic Beach》</p><br>
+                        <p>． 全球1700萬張銷售，歷時四年、第三張全新大碟</p>
+                        <p>． 投身南太平洋最遠秘密基地，「天涯海『膠』」</p><br><br><br>
+                        <p> 從《Gorillaz》裡的超時空建築到《Demon Days》裡的天空之城，這次街頭霸王新輯的活動場景竟落在南太平洋的尼莫點（Point
+                            Nemo：海上距離陸地最遠地方），一座外觀宛如漂浮小島的秘密海角基地，並取名為《天涯海膠Plastic
+                            Beach》！在這座剛剛浮出水面的全新舞台上，立刻湧入多位知名音樂人「不只義氣、也有意義」的情義相挺！包括The Velvet Underground當中的靈魂人物龐克教父Lou
+                            Reed、美國西岸嘻哈樂界霸主史努比狗狗Snoop Dogg、英國搖滾樂隊The Fall主唱Mark E Smith、來自紐約長島的三人饒舌組合De La
+                            Soul、嘻哈創作達人Mos Def、靈魂樂教父Bobby Womack。除此之外還有阿拉伯國家管樂團The National Orchestra Of Arabic
+                            Music以及催眠銅管樂團Hypnotic Brass Ensemble，加上芝加哥九人編制爵士╱嘻哈組合Chicago-Based Nine-Piece Jazz /
+                            Hip-Hop Group的加入。而更令人興奮的是，傳奇龐克樂團The Clash的首席吉他手Mick Jones、貝斯手Paul Simonon，也同時出現在這次的作品當中。</p>
+                        <p>在第三張原創專輯《Plastic
+                            Beach》中的16首全新歌曲，橫跨流行音符、饒舌嘻哈、靈魂樂、搖滾與電子音樂...等既有音樂範疇，而這段從天邊到海「膠」的音樂旅程，也將超越人類的想像界限。在這「天涯海『膠』」的秘密基地裡，你將看見街頭霸王繪製一幅以人類為主題的寓言式圖畫，而印入眼簾的，將是浪費、破壞、消費主義、孤立、以及墮落...等人性真實面。</p>
+                    </div>
+                </li>
+                <li class="albumName indexNavFont transition">
+                    <h3>《The Fall》 (2010)</h3>
+                    <div class="albumIntro albumIntroFont transition">
+                        <div class="img_float"> <img src="images/album/the fall.jpg" alt=""></div>
+
+                        <p>《The Fall》</p><br>
+                        <p>．讓你久等了！首張利用iPad創作的概念專輯終於實體發售</p>
+                        <p>．如公路電影般的音樂作品，讓世人體會創作的能量全在腦袋裡</p>
+                        <p>．權威音樂雜誌NME週報，率先給予8/10高度好評 </p>
+                        <br><br>
+
+                        <p>「最成功的虛擬樂團」街頭霸王Gorillaz，在逃離了黑暗殺人魔與終極殺手的追殺、躲到南太平洋秘密基地天涯海膠之後，阿D、魔頭、小麵、洛胖開始為了接下來的巡迴演出，在島上做彩排練習。</p>
+
+                        <p>《The Fall》的開場曲〈Phoner To Arizona〉，就定調出這場公路旅遊的氣氛，在空心吉他、浪漫開場的〈Revolving
+                            Doors〉引領之下，順著秋天的風，一路用微微的訕笑扭曲著詭異的節奏，向前邁進。戴蒙的嗓音還是那麼地慵懶、不屑以及令人著迷，〈HillBilly
+                            Man〉在Lo-Fi元素之中，打滾出一片新天地。緩駛過了〈Detroit〉之後，〈Shy-town〉這座瀰漫著Ambient煙塵的城市，刮著來自〈Little Pink
+                            Plastic Bags〉的風。因為工業噪音汙染而誕生的變種怪獸〈The Joplin
+                            Spider〉忽然現身，吞吐著80年代孕育出的雷射光束，替旅程增添不少中驚險，在逃脫怪物的侵襲之後，轉開懷舊電台，聆聽著融合鄉村元素的〈The Parish Of Space
+                            Dust〉。繼續旅程，在路過德州的〈Amarillo〉之前，又碰上一條不斷擺動著嘎嘎作響尾巴，名叫〈The Snake In Dallas〉的響尾蛇。穿越過群山環繞的〈The
+                            Speak It Mountains〉，隱約間可以聽見山谷裡的迴音低語，一路來到加州的〈Aspen
+                            Forest〉，音符間的更迭與樹林裡的光影變化如此契合。一行人來到了鳳凰城，在稍微休息之時，好朋友Bobby
+                            Womack一時技癢，拿著吉他唱出帶著藍調及鄉村樂色彩的全新創作〈Bobby In Phoenix〉。抵達陽光加州之時，〈California And The Slipping Of
+                            The Sun〉的烈日已經悄悄落下，就在有感而發唱出搞怪民謠〈Seattle Yodel〉之後，也宣告著旅程告一段落。</p>
+
+
+                    </div>
+                </li>
+                <li class="albumName indexNavFont transition">
+                    <h3>《Humanz》 (2017)</h3>
+                    <div class="albumIntro albumIntroFont transition">
+                        <div class="img_float"> <img src="images/album/Humanz.jpg" alt=""></div>
+
+                        <p>《HUMANZ》</p>
+                        <br>
+                        <p>．虛構vs.真實 | 流行vs.另類 | 嘻哈vs.搖滾 | 經典vs.新銳</p>
+                        <p>．一切二元結構的交會點</p>
+                        <p>．全英音樂獎 + 葛萊美獎 18 項提名</p>
+                        <br><br>
+                        <p>史無前例一次發行4首單曲打頭陣，其中成員搞笑領銜主演，長達六分鐘的「Saturnz
+                            Barz」科幻動畫音樂錄影帶正常版跟360度格式版齊發，發布短短24個小時YouTube點擊率合計突破7百60萬次，直奔英國金榜百大之林；散盡愛與包容力的正面能量「We Got
+                            The Power」，找來前死對頭-綠洲合唱團(Oasis)的諾爾蓋勒格(Noel
+                            Gallagher)無掛名合音，兩人冰釋前嫌的合作是一大亮點；觸及種族問題的「Ascension」，堆砌鮮亮電音、嘻哈、福音的元素，該是把音量調大好好聆聽一番；Soulful
+                            House的「Strobelite」，刺激身上的舞動細胞；流竄復古Disco Funk的「Andromeda」，捕捉繽紛色彩的光芒，一起恣意搖擺；倒灌美派街頭嘻哈之音的「Let Me
+                            Out」，是支英美兩地好手合作的正點結晶代表；各媒體大力推崇金嗓新秀Benjamin Clementine獻藝「Hallelujah
+                            Money」，一種復古與時興的結合，值得玩味。豪華典藏版盤獨家的CD2收錄6首曲目，包括分別佔領BBC『Sound Of 2017』冠亞軍的Ray BLK+Rag‘n’Bone
+                            Man參與的「The Apprentice」，再展嘻哈靈魂的超魅力；集葛萊美+奧斯卡+金球獎的女伶Carly Simon與酷酷新女聲Kali Uchis合作「Ticker
+                            Tape」，故意製造老舊帶子發出的雜音，別以為音軌有問題唷！再次拓展音樂的可能性，一次滿足視聽感官雙享受，街頭霸王就是要無止境的Fun肆玩下去！ ！</p>
+                    </div>
+                </li>
+                <li class="albumName indexNavFont transition">
+                    <h3>《The Now Now》 (2018)</h3>
+                    <div class="albumIntro albumIntroFont transition">
+                        <div class="img_float"> <img src="images/album/the_now_now.jpg" alt=""></div>
+
+                        <p>《The Now Now》</p>
+                        <br>
+                        <p>．「真實」凝聚所有人類夢想</p>
+                        <p>．開創音樂全新紀元的超人類樂團</p>
+                        <p>．2018全英音樂獎『最佳英國團體』</p>
+                        <br>
+                        <p>受「當下」啟發，更關注在「現在」所發生事件中的“The Now Now＂，除了曾是The Rolling Stones、 Paul McCartney、Paul
+                            Simon指定客席鼓手，戴蒙自設品牌DRC Music夥伴Remi Kabaka再度協助製作外，還邀請Arctic Monkeys、Florence And The
+                            Machine、The Last Shadow Puppets等頂尖獨立搖滾樂團幕後推手James Ford連袂抬轎！</p>
+                        <p>選擇夏季發片就該提供如同「Humility」這般陽光迷人之作，外加10座葛萊美獎禮讚跨界爵士、節奏藍調、流行領域的傳奇大師George Benson協助，灌入Jazz
+                            Pop的慵懶愜意，已在歐洲多國排行引發騷動，勢必能成為2018年夏季之歌；再接再厲飄散陶醉聲頻的「Sorcererz」，在電子Synthpop音場貫穿圍繞下，一旁點滴潤飾的R&B、Funky元素堆疊，捕捉幸福夢幻的感動；快意旋律不停歇地延續到「Lake
+                            Zurich」，幾乎是純音樂的呈現，偶而穿插囈語般的念詞和重複合唱之聲，光靠明亮節奏也就足以挑起聆聽著愉悅心情；18次葛萊美獎提名美國西岸嘻哈/流行樂界狗狗霸主Snoop
+                            Dogg+美國浩室音樂先鋒之一的Jamie Principle合力站台「Hollywood」，一次次體驗街頭霸王實驗膽識，以及近乎完美詮釋力與編曲能耐，掀起令人期待的酷樂浪潮！</p>
+
+
+                    </div>
+                </li>
+            </ul>
+
+
+        </section>
+        <section id="tour" class="displayFlex">
+            <h2 class="tourTitle textCenter transition">TOUR DATES</h2>
+            <!-- <div style="height: 5vh;width: 10px;"></div> -->
+
+            <table class="july">
+
+                <tbody>
+                    <tr style="margin-top:50px">
+                        <td class="tourDate">Jul 05</td>
+                        <td class="tourPlace">Rock Werchter 2018 <br>Festival<br>park Werchter, Belgium</td>
+                        <td class="tourWith">With The Killers, Arctic Monkeys, <br>MGMT, And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button" href="https://www.songkick.com/festivals/1249-rock-werchter/id/32066229-rock-werchter-2018?utm_source=46422&utm_medium=partner"
+                                target="_blank"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 05</td>
+                        <td class="tourPlace">Werchter Festival 2018<br>Werchter, Belgium</td>
+                        <td class="tourWith">With Albert Hammond Jr</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 06</td>
+                        <td class="tourPlace">Open'er Festival 2018 <br>Lotnisko Gdynia-Kosakowo <br>Gdynia, Poland</td>
+                        <td class="tourWith">With Bruno Mars, Arctic Monkeys, <br>Depeche Mode And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 07</td>
+                        <td class="tourPlace">Roskilde Festival 2018 <br>Roskilde Festival <br>Roskilde, Denmark</td>
+                        <td class="tourWith">With Eminem, Bruno Mars, <br>Fleet Foxes And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 11</td>
+                        <td class="tourPlace">Gurtenfestival 2018 <br>Gurtenfestival <br>Bern, Switzerland</td>
+                        <td class="tourWith">With Alt-J, MØ, Angus & Julia Stone <br>And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 12</td>
+                        <td class="tourPlace">Lucca Summer Festival 2018 <br>Piazza Napoleone <br>Lucca, Italy</td>
+                        <td class="tourWith">With Nick Cave And The Bad Seeds, <br>King Crimson, Hollywood Vampires And
+                            More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button" target="_blank" href="http://www.songkick.com/festivals/69936-lucca-summer/id/32066249-lucca-summer-festival-2018?utm_source=46422&utm_medium=partner">
+                                Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 14</td>
+                        <td class="tourPlace">Bilbao BBK Live 2018 <br>Monte Kobetamendi <br>Bilbao, Spain</td>
+                        <td class="tourWith">With The Xx, Alt-J, <br>Childish Gambino And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 19</td>
+                        <td class="tourPlace">Paléo Festival Nyon 2018 <br>Paleo Festival <br>Nyon, Switzerland</td>
+                        <td class="tourWith">With The Killers, Depeche Mode, <br>Lenny Kravitz And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 21</td>
+                        <td class="tourPlace">Vieilles Charrues 2018<br>Carhaix, France</td>
+                        <td class="tourWith">With Massive Attack, Portugal. <br>The Man, MØ And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 22</td>
+                        <td class="tourPlace">Lollapalooza 2018 <br>Hippodrome De Longchamp <br>Paris, France</td>
+                        <td class="tourWith">With The Killers, Bastille, <br>Depeche Mode And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 25</td>
+                        <td class="tourPlace">U-Park Festival 2018 <br>Dynamo Stadium <br>Kyiv (Kiev), Ukraine</td>
+                        <td class="tourWith">With Tove Lo, Massive Attack, <br>Bonobo And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Jul 28</td>
+                        <td class="tourPlace">Park Live Festival 2018<br>Moscow, Russian Federation</td>
+                        <td class="tourWith"> With David Guetta, Tove Lo, <br>Massive Attack And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Aug 09</td>
+                        <td class="tourPlace">Sziget Festival 2018 <br>Óbudai-Sziget <br>Budapest, Hungary</td>
+                        <td class="tourWith">With Kendrick Lamar, Mumford & Sons,<br>Lana Del Rey, Arctic Monkeys And
+                            More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Aug 11</td>
+                        <td class="tourPlace">BoomTown Fair !!! 2018 <br>Matterley Estate <br>Ovington, UK</td>
+                        <td class="tourWith">With Limp Bizkit, Morcheeba, <br>Enter Shikari And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Aug 16</td>
+                        <td class="tourPlace">FM4 Frequency Festival 2018 <br>Green Park <br>St Pölten, Austria</td>
+                        <td class="tourWith">With Imagine Dragons, Bastille, <br>The Kooks And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Aug 17</td>
+                        <td class="tourPlace">Lowlands Festival 2018 <br>Evenemententerrein Walibi World <br>Biddinghuizen,
+                            Netherlands</td>
+                        <td class="tourWith">With Kendrick Lamar, Grizzly Bear, <br>James Bay And More</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Oct 08</td>
+                        <td class="tourPlace">Air Canada Centre <br>Toronto, ON, Canada</td>
+                        <td class="tourWith">With The Internet</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Oct 09</td>
+                        <td class="tourPlace">Bell Centre <br>Montreal, QC, Canada</td>
+                        <td class="tourWith">With The Internet</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Oct 11</td>
+                        <td class="tourPlace">Wells Fargo Center <br>Philadelphia, PA, US</td>
+                        <td class="tourWith">With The Internet</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Oct 13</td>
+                        <td class="tourPlace">Barclays Center <br>Brooklyn, NY, US</td>
+                        <td class="tourWith">With The Internet</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Oct 14</td>
+                        <td class="tourPlace">TD Garden <br>Boston, MA, US</td>
+                        <td class="tourWith">With Little Dragon</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Oct 16</td>
+                        <td class="tourPlace">United Center C<br>hicago, IL, US</td>
+                        <td class="tourWith">With The Internet</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tourDate">Oct 20</td>
+                        <td class="tourPlace">Demon Dayz 2018 <br>Pico Rivera Sports Arena <br>Pico Rivera, CA, US</td>
+                        <td class="tourWith">With Erykah Badu And D.R.A.M.</td>
+                        <td class="ticket"><a class="ticketIcon" role="button"> Get Ticket!</a></td>
+                    </tr>
+                </tbody>
+                <footer>
+
+
+                </footer>
+            </table>
+
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+
+
+                function reset() {
+
+                    if (windowWidth <= 500) {
+                        $("#index").css("background", "url(images/mq_index_00.jpg)").css("background-size", "cover")
+                    }else{
+                        $("#index").mouseleave(() => {
+                        $("#index").css("background", "url(images/index_bg_00.jpg)").css("background-size", "cover")
+                    })
+                    }
+                }
+                // ------------------------------偵測滑鼠上下顯示NAV-----------------------
+                var scrollLast = 0
+                $(window).scroll( () => {
+                    var scrollTop = $(this).scrollTop()
+                    console.log(scrollLast)
+                    if (scrollLast > scrollTop) {
+                        $("header").removeClass("header_hide")
+                    } else {
+                        $("header").addClass("header_hide")
+                    }
+                    scrollLast = scrollTop
+                });
+                // ----------------------------------------------------------------------
+
+
+                var windowWidth = $(window).width()
+                $(".info").on("mouseenter click", function () {
+
+                    $("#index").css("background", "url(images/index_bg_01.jpg)").css("background-size", "cover")
+                    if (windowWidth < 500) {
+                        $("#index").css("background", "url(images/mq_index_info.png)").css("background-size", "cover")
+                        $(".info").toggleClass("currentBG").siblings().removeClass("currentBG");
+                        $(".albumList").removeClass("showAlbumList")
+                        $(".albumList li a").hide()
+                    }
+                })
+                $(".info").mouseleave(function () {
+                    // indexFontHover()
+                    reset()
+                })
+                $(".album").on("click mouseenter", function () {
+                    $("#index").css("background", "url(images/index_bg_02ver2.jpg)").css("background-size", "cover")
+                    if (windowWidth <= 500) {
+                        $("#index").css("background", "url(images/mq_index_album.png)").css("background-size", "cover")
+                        $(".album").toggleClass("currentBG").siblings().removeClass("currentBG");
+                    }
+                })
+                $(".album").mouseleave(function () {
+                    reset()
+                })
+                $(".tour").on("mouseenter click", function () {
+                    $("#index").css("background", "url(images/index_bg_03.jpg)").css("background-size", "cover")
+                    if (windowWidth <= 500) {
+                        $("#index").css("background", "url(images/mq_index_tour.png)").css("background-size", "cover")
+                        $(".albumList").removeClass("showAlbumList")
+                        $(".albumList li a").hide()
+                        $(".tour").toggleClass("currentBG").siblings().removeClass("currentBG");
+                    }
+                })
+                $(".tour").mouseleave(function () {
+                    reset()
+                });
+                $(".link_info").click(function () {
+                    $(".popupInfo").toggleClass("showInfo");
+                    $(".closeInfo").toggleClass("show_X");
+                    $(".info").toggleClass("currentBG").siblings().removeClass("currentBG");
+                    $(this).parents().find(".albumList li a").hide();
+                    $(this).parents().find(".albumList").removeClass("showAlbumList");
+                    if (windowWidth <= 500) {
+                        $("#index").css("background", "url(images/mq_index_info.png)").css("background-size", "cover")
+                    }
+                });
+                $(window).scroll(function () {
+                    var scrollTop = $(this).scrollTop()
+
+                    if (windowWidth <= 500) {
+
+                    } else {
+                        if (scrollTop >= 1650) {
+                            $(".tourTitle").css("left", "0vw")
+                        } else {
+                            $(".tourTitle").css("left", "-200px")
+                        }
+                    }
+                })
+                $(".closeInfo").click(function () {
+                    $(".popupInfo").removeClass("showInfo");
+                    $(".closeInfo").removeClass("show_X");
+                    $(".info").toggleClass("currentBG").siblings().removeClass("currentBG");
+                });
+
+                $(".albumList li a").hide()
+                $(".link_album").click(function () {
+                    $(".albumList").toggleClass("showAlbumList")
+                    $(".albumList li a").toggle()
+                    $(".album").toggleClass("currentBG").siblings().removeClass("currentBG");
+                    $(this).parents().find(".popupInfo").removeClass("showInfo");
+                    $(this).parents().find(".closeInfo").removeClass("show_X");
+                });
+
+
+                $("#album ul li").click(function () {
+                    $(this).siblings().find(".albumIntro").removeClass("albumChecked")
+                    $(this).find(".albumIntro").toggleClass("albumChecked")
+                    $("header").removeClass("header_hide")
+                    if (windowWidth <= 500) {
+                        $("#index").css("background", "url(images/mq_index_00.png)").css("background-size", "cover")
+                        console.log($(this).height())
+                    }
+                });
+                $(".albumList li a").click(function () {
+                    var albumNo = $(this).attr("data-albumname")
+                    $("ul.albumAccordion li").find(".albumIntro").removeClass("albumChecked");
+                    $("ul.albumAccordion li").eq(albumNo - 1).find(".albumIntro").addClass("albumChecked")
+                    $(this).parent().parent().toggleClass("showAlbumList")
+                    $(".albumList li a").toggle()
+                    $(".album").toggleClass("currentBG").siblings().removeClass("currentBG");
+                });
+                $("tr").mouseenter(function () {
+                    $("header").removeClass("header_hide")
+                });
+                $("#nav li a").click(function () {
+                    var scrollPo = $(this).attr("data-scrollTo");
+                    var scrollTo = $("#" + scrollPo).offset().top;
+                    $("html").animate({
+                        scrollTop: scrollTo,
+                    }, 800)
+                    if (windowWidth < 500) {
+                        sandwichControl()
+                    }
+                });
+                $(".socialMedia").click(function () {
+                    if (windowWidth < 500) {
+                        sandwichControl()
+                    }
+                });
+
+                $(".fakeLogoSection").click(function () {
+                    var scrollTop = $(this).scrollTop()
+                    $("html").animate({
+                        scrollTop: 0,
+                    }, 800)
+                    if (windowWidth <= 500) {
+                        $("#index").css("background", "url(images/mq_index_00.png)").css("background-size", "cover")
+
+                    }
+                });
+                $(".albumList li a").click(function () {
+
+                    var scrollPo = $(this).attr("data-scrollTo");
+                    var scrollTo = $("#" + scrollPo).offset().top;
+
+                    $("html").animate({
+                        scrollTop: scrollTo,
+                    }, 800)
+                    $("header").removeClass("header_hide")
+                });
+
+                $(".link_tour").click(function () {
+                    $(".tour").toggleClass("currentBG").siblings().removeClass("currentBG");
+                    var scrollPo = $(this).attr("data-scrollTo");
+                    var scrollTo = $("#" + scrollPo).offset().top;
+
+                    $("html").animate({
+                        scrollTop: scrollTo,
+                    }, 800)
+                    $(this).parents().find(".popupInfo").removeClass("showInfo");
+                    $(this).parents().find(".closeInfo").removeClass("show_X");
+                    $("header").removeClass("header_hide")
+                    $(".albumList").removeClass("showAlbumList")
+                    $(".albumList li a").hide()
+                    if (windowWidth <= 500) {
+                        //   $("#index").css("background", "url(images/mq_index_tour.png)").css("background-size", "cover")
+                        //   $(".albumList").removeClass("showAlbumList")
+                    }
+
+                });
+                $(document).ready(function () {
+                    if (windowWidth < 500) {
+                        $(".tourWith").css("display", "none")
+                    }
+                })
+                $(".sandwichClose").click(function () {
+                    $(this).toggleClass("sandwichCloseMove")
+                    $(this).find(".linebox").eq(0).toggleClass("line1")
+                    $(this).find(".linebox").eq(1).toggleClass("line2")
+                    $(this).find(".linebox").eq(2).toggleClass("line3")
+                    $(".sandwichOpen").toggleClass("sandwichOpenSwitch")
+                    if (windowWidth <= 500) {
+                        $("#index").css("background", "url(images/mq_index_00.png)").css("background-size", "cover")
+
+                    }
+
+                });
+                function sandwichControl() {
+                    $(".sandwichClose").removeClass("sandwichCloseMove")
+                    $(".sandwichClose").find(".linebox").eq(0).toggleClass("line1")
+                    $(".sandwichClose").find(".linebox").eq(1).toggleClass("line2")
+                    $(".sandwichClose").find(".linebox").eq(2).toggleClass("line3")
+                    $(".sandwichOpen").removeClass("sandwichOpenSwitch")
+                }
+        // var scrollTop=$(this).scrollTop()
+        // console.log(scrollTop)
+
+        // scrollTop=0
+
+
+
+// $("#tour").remove(function(){
+//     if(windowWidth<=500){
+//         $(this).find("td").eq(0)      
+//     }
+// })
+
+        // ----------------------------------table格式---------------------------------------
+
+// var y = 500;
+// var z = 0;
+// var perspective = 0;
+
+// function scrollBack(e) {
+//   e.preventDefault();
+//   y += e.originalEvent.wheelDelta / 10;
+//   $('.animation').css({
+//     'transform': 'rotateX(50deg) translate3d(0px,' + y + 'px, ' + z + 'px)'
+//   });
+// }
+
+// function setTranslation() {
+//   z = 500;
+//   perspective = $('.animation').height() / $(window).height() * 200;
+//   $('.animation').css({
+//     'transform': 'rotateX(50deg) translate3d(0px, ' + y + 'px, ' + z + 'px)'
+//   });
+//   $('body').css({
+//     'perspective': perspective
+//   });
+// }
+
+// $(window).on({
+//   'mousewheel': scrollBack,
+//   'load': setTranslation,
+//   'resize': setTranslation
+// });
+
+// $('body').on('keyup', '.paragraphs', setTranslation);
+
+
+            </script>
+
+</body>
+
+</html>
